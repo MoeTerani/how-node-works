@@ -33,15 +33,17 @@ myEmitter.emit('newSale', 9); // #2 Create a new event
 console.log(myEmitter);
 
 //**************************************************************** */
-
+// Create a serevr to simulate the request and event listening
 const server = http.createServer();
 
 server.on('request', (req, res) => {
+  //log the requested URL
   console.log(req.url);
   console.log('Request Recieved');
   res.end('Request Recieved');
 });
 
+//Only the first respond will be send , so here will be clg instes of res.end()
 server.on('request', (req, res) => {
   console.log(' Another Request 👌🏼');
 });
@@ -50,6 +52,7 @@ server.on('close', (req, res) => {
   res.end(' Server closed');
 });
 
+//run the server on a specific port
 server.listen(8000, '127.0.0.1', () => {
   console.log('Waiting for request');
 });
