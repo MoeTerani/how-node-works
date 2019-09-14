@@ -1,6 +1,13 @@
 const EventEmitter = require('events');
 
-const myEmitter = new EventEmitter(); // #1 Create our own copy of the EventEmitter
+//this the best practice tyo use class to create emit events
+class Sale extends EventEmitter {
+  constructor() {
+    super();
+  }
+}
+
+const myEmitter = new Sale(); // #1 Create our own copy of the EventEmitter class
 
 console.log(myEmitter); //# Before, an empty EventEmitter object
 
